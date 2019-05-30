@@ -230,10 +230,9 @@ Voilà tout ! Notre API est fin prête pour nous permettre de faire toutes les m
 Nous pouvons tester ses fonctionnalités avec POSTMAN.
 
 
+### Sources :
 
-
-
-@tutoriel réalisé par Vincent Lim et Eddy ABADA
-Sources :
 * **MongoDB doc** : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 * **medium tutorial on fastify** : https://www.freecodecamp.org/news/how-to-build-blazing-fast-rest-apis-with-node-js-mongodb-fastify-and-swagger-114e062db0c9/
+
+@tutoriel réalisé par Vincent Lim et Eddy ABADA
