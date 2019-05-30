@@ -15,7 +15,7 @@ Votre environnement MongoDB est maintenant configuré !
 ## Créons notre espace de travail
 A présent, créons l'architecture de notre API et installons nos dépendences avec npm.
 * créez un dossier **/todo_API** dans le répertoire de votre choix
-* au sein de celui-ci, créez un dossier **src** qui contiendra le point d'entrée de notre programme
+* au sein de celui-ci, créez un dossier **/src** qui contiendra le point d'entrée de notre programme
 * au sein de **/src**, ajoutez le fichier **index.js**
 
 A la racine de notre projet, initialisons npm avec la commande suivante : `npm init`
@@ -159,4 +159,55 @@ exports.deleteTodo = async (req, reply) => {
     throw boom.boomify(err)
   }
 }
+```
+
+## Il nous faut des routes !
+Nous allons maintenant créer les routes de notre API. Il s'agit des URL qui permettront d'envoyer des requêtes. Lors de ces requêtes, notre controller se chargera d'exécuter les fonctions que nous lui avons passés en tenant compte du contexte.
+Pour commencer, créez dans le dossier **/src** un dossier **/routes** dans lequel vous créerez un fichier **index.js**.
+Au sein de ce fichier, il vous faudra importer le todoController de la partie précédente :
+```javascript
+const todoController = require('../controllers/todoController');
+```
+
+Créons maintenant les différentes routes :
+```javascript
+const routes = [
+  {
+    method: 'GET',
+    url: '/api/todos',
+    handler: todoController.getTodos
+  },
+  {
+    method: 'GET',
+    url: '/api/todos/:id',
+    handler: todosController.getSingleTodo
+  },
+  {
+    method: 'POST',
+    url: '/api/todos',
+    handler: todoController.addTodo,
+  },
+  {
+    method: 'PUT',
+    url: '/api/todos/:id',
+    handler: todoController.updateTodo
+  },
+  {
+    method: 'DELETE',
+    url: '/api/todos/:id',
+    handler: todoController.deleteTodo
+  }
+];
+```
+Qu'avons-nous fait ?
+
+Nous avons en fait donné à notre objet **routes** l'ensemble des routes de notre API.
+A chaque fois, nous avons renseigné trois champs :
+* **method** : il s'agit de la méthode de la requête http
+* **url** : l'url de notre route
+* **handler** : la méthode de notre controller à exécuter dans le contexte de la route (méthode de requête + URL)
+
+On oublie d'exporter nos routes en fin de fichier :
+```javascript
+module.exports = routes;
 ```
