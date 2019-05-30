@@ -2,6 +2,7 @@
 Une API contruite avec fastify et MongoDB
 
 ## Par quoi commencer ?
+Nous allons construire une API permettant d'échanger des données pour la gestion d'une Todolist !
 Pour commencer, nous allons devoir configurer notre environnement MongoDB.
 Sur mac, ouvrez votre terminal et entrez successivement les lignes suivantes :
 ```
@@ -58,5 +59,18 @@ mongoose.connect('mongodb://localhost/mycargarage')
 ```
 En sauvegardant votre fichier, vous devriez voir *MongoDB connected* dans votre terminal.
 
+## Créons un schema pour notre todolist
+Dans le dossier **/src**, créez un dossier **models** et ajoutez-y le fichier **Todo.js**.
+Ajoutons-y le code suivant :
+```javascript
+const mongoose = require('mongoose');
 
+const todoSchema = new mongoose.Schema({
+  label: String,
+  description: String
+});
+
+module.exports = mongoose.model('Todo', todoSchema);
+```
+Nous avons ici importer **mongoose** puis créez un schema. Celui-ci nous permets de définir les données associer à notre modèle **Todo**. Notre Todolist aura donc un *label* ainsi qu'une *description*. C'est deux champs sont de types *String*.
 
