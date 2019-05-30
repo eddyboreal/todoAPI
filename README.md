@@ -47,7 +47,7 @@ fastify.listen(3000, function(err, address) {
 
 A présent, rendez-vous sur votre localhost:3000 pour voir votre serveur lancé !
 
-##Connectons la base de données
+## Connectons la base de données
 Rappelez-vous, nous avons installé plus tôt le module **mongoose** via npm. Maintenant, importons le dans notre fichier **index.js** et connectons la base de donnée :
 ```javascript
 const mongoose = require('mongoose');
