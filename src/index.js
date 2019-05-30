@@ -1,4 +1,10 @@
 const fastify = require('fastify')();
+const mongoose = require('mongoose');
+
+// connect to MongoDB
+mongoose.connect('mongodb://localhost/mycargarage')
+  .then(() => console.log('MongoDB connected…'))
+  .catch(err => console.log(err))
 
 
 
