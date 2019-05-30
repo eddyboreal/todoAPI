@@ -25,7 +25,7 @@ Pour cela, utilisez la commande suivante : `npm i --save nodemon mongoose fastif
 
 *Mais qu'avons-nous installé ?*
 * D'abord, nous avons installé **fastify** qui est un puissant framework web réputé pour sa rapidité
-* Ensuite, **mongoose** nous fournira une solution pour la modélisation de nos données, celles qui seront renvoyées par notre API 
+* Ensuite, **mongoose** nous fournira une solution pour la modélisation de nos données, celles qui seront renvoyées par notre API
 * Enfin, **boom** est un module qui nous sera utile pour retourner des erreurs HTTP
 
 ## Il serait temps de lancer notre serveur
