@@ -29,7 +29,7 @@ Pour cela, utilisez la commande suivante : `npm i --save nodemon mongoose fastif
 * Enfin, **boom** est un module qui nous sera utile pour retourner des erreurs HTTP
 
 ## Il serait temps de lancer notre serveur
-Dans le fichier **package.json**, ajoutez le script `"start": "./node_modules/nodemon/bin/nodemon.js ./src/index.js"`. Par la suite, nous pourrons utiliser la commande `npm start` dans le terminal pour lancer notre serveur avec nodemon. Ainsi, à chaque changement dans un de nos fichiers, nodemon s'occupera de mettre à jour notre serveur.
+Dans le fichier **package.json**, ajoutez le script `"start": "./node_modules/nodemon/bin/nodemon.js ./src/index.js"`. Par la suite, nous pourrons utiliser la commande `npm start` dans le terminal pour lancer notre serveur avec **nodemon**. Ainsi, à chaque changement dans un de nos fichiers, nodemon s'occupera de mettre à jour notre serveur.
 
 Maintenant, rendez-vous dans le votre fichier *index.js* dans **/todo_API/src/**.
 Ajoutez-y les lignes suivantes :
@@ -95,12 +95,66 @@ Voici ce que nous pouvons faire :
 * Mettre à jour une todo
 * Supprimer une todo
 
-Ecrivons alors une fonction permettant de renvoyer toutes les todos :
+### Ecrivons alors une fonction permettant de renvoyer toutes les todos
 ```javascript
 exports.getTodos = async (req, reply) => {
   try {
     const todos = await Todo.find()
     return todos
+  } catch (err) {
+    throw boom.boomify(err)
+  }
+}
+```
+Nous avons là stocké l'ensemble des données du model Todo puis nous les retournons. Les erreurs pouvant arrivées lors de cette fonction sont catch puis retournées par le module **boom**.
+
+### Ecrivons maintenant une fonction permettant le renvoi d'une todo selon son ID
+```javascript
+exports.getSingleTodo = async (req, reply) => {
+  try {
+    const id = req.params.id
+    const todo = await Todo.findById(id)
+    return todo
+  } catch (err) {
+    throw boom.boomify(err)
+  }
+}
+```
+
+### Maintenant, une fonction permettant l'ajout d'une todo
+```javascript
+exports.addTodo = async (req, reply) => {
+  try {
+    const todo = new Todo(req.body)
+    return todo.save()
+  } catch (err) {
+    throw boom.boomify(err)
+  }
+}
+```
+
+### Mettons la todo à jour
+```javascript
+exports.updateTodo = async (req, reply) => {
+  try {
+    const id = req.params.id
+    const todo = req.body
+    const { ...updateData } = car
+    const update = await Car.findByIdAndUpdate(id, updateData, { new: true })
+    return update
+  } catch (err) {
+    throw boom.boomify(err)
+  }
+}
+```
+
+### Supprimons là
+```javascript
+exports.deleteTodo = async (req, reply) => {
+  try {
+    const id = req.params.id
+    const todo = await Todo.findByIdAndRemove(id)
+    return todo
   } catch (err) {
     throw boom.boomify(err)
   }
