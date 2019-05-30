@@ -12,7 +12,7 @@ const routes = [
   {
     method: 'GET',
     url: '/api/todos/:id',
-    handler: todosController.getSingleTodo
+    handler: todoController.getSingleTodo
   },
   {
     method: 'POST',
