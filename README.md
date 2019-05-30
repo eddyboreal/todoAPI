@@ -207,7 +207,24 @@ A chaque fois, nous avons renseigné trois champs :
 * **url** : l'url de notre route
 * **handler** : la méthode de notre controller à exécuter dans le contexte de la route (méthode de requête + URL)
 
-On oublie d'exporter nos routes en fin de fichier :
+On oublie pas d'exporter nos routes en fin de fichier :
 ```javascript
 module.exports = routes;
 ```
+
+## La dernière étape : l'import de nos routes
+Revenons maintenant au fichier **index.js** à la racine de notre répertoire **/src**.
+Importons les routes :
+```javascript
+const routes = require('./routes');
+```
+Pour déclarer une route dans fastify, il faut utiliser la fonction **fastify.route(options)**. Les options passées en paramètres de la fonction sont en fait les champs que nous avons défini dans notre **/routes/index.js**.
+Ajoutons donc nos routes :
+```javascript
+routes.forEach((route, index) => {
+  fastify.route(route);
+});
+```
+
+Voilà tout ! Notre API est fin prête pour nous permettre de faire toutes les modifications de données.
+Nous pouvons tester ses fonctionnalités avec POSTMAN.

@@ -1,5 +1,6 @@
 const fastify = require('fastify')();
 const mongoose = require('mongoose');
+const routes = require('./routes');
 
 // connect to MongoDB
 mongoose.connect('mongodb://localhost/mycargarage')
@@ -7,6 +8,10 @@ mongoose.connect('mongodb://localhost/mycargarage')
   .catch(err => console.log(err))
 
 
+// add all routes in fastify
+routes.forEach((route, index) => {
+  fastify.route(route);
+});
 
 // running the server
 fastify.listen(3000, function(err, address) {
