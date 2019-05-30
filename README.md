@@ -60,7 +60,7 @@ mongoose.connect('mongodb://localhost/mycargarage')
 En sauvegardant votre fichier, vous devriez voir *MongoDB connected* dans votre terminal.
 
 ## Créons un schema pour notre todolist
-Dans le dossier **/src**, créez un dossier **models** et ajoutez-y le fichier **Todo.js**.
+Dans le dossier **/src**, créez un dossier **/models** et ajoutez-y le fichier **Todo.js**.
 Ajoutons-y le code suivant :
 ```javascript
 const mongoose = require('mongoose');
@@ -72,5 +72,37 @@ const todoSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Todo', todoSchema);
 ```
-Nous avons ici importer **mongoose** puis créez un schema. Celui-ci nous permets de définir les données associer à notre modèle **Todo**. Notre Todolist aura donc un *label* ainsi qu'une *description*. C'est deux champs sont de types *String*.
+Nous avons ici importer **mongoose** puis créez un schema. Celui-ci nous permets de définir les données associer à notre modèle **Todo**. Notre Todolist aura donc un *label* ainsi qu'une *description*. C'est deux champs sont de type *String*. Enfin, nous exportons notre modèle dans la dernière ligne.
 
+## Créons un controller pour notre Todolist
+Nous avons créer plus tôt un model pour notre Todolist. Nous allons maintenant lui associer un **controller** à notre **todoSchema**. Il s'agira de lui associer des fonctions permettant de retourner, de supprimer et de mettre à jour nos données.
+Tout d'abord dans le dossier **/src**, créez un dossier **/controllers** et ajoutez-y le fichier **todoController.js**.
+
+Dans le fichier **todoController.js**, importez **boom**. C'est grâce à ce module que nous pourrons retourner les erreurs.
+```javascript
+const boom = require('boom');
+```
+Ensuite, importez notre model **Todo** :
+```javascript
+const Todo = require('../models/Todo');
+```
+
+Maintenant réflechissons. Quelles fonctions voulons-nous associer à notre model ?
+Voici ce que nous pouvons faire :
+* Retourner l'ensemble des todos enregistrées dans notre base de données
+* Retourner une todo grâce à son ID généré par MongoDB
+* Ajouter une nouvelle todo
+* Mettre à jour une todo
+* Supprimer une todo
+
+Ecrivons alors une fonction permettant de renvoyer toutes les todos :
+```javascript
+exports.getTodos = async (req, reply) => {
+  try {
+    const todos = await Todo.find()
+    return todos
+  } catch (err) {
+    throw boom.boomify(err)
+  }
+}
+```
