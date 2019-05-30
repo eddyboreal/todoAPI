@@ -1,0 +1,26 @@
+{
+  "name": "todoapi",
+  "version": "1.0.0",
+  "description": "Une API contruite avec fastify et MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/nodemon/bin/nodemon.js ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddyboreal/todoAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eddyboreal/todoAPI/issues"
+  },
+  "homepage": "https://github.com/eddyboreal/todoAPI#readme",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "fastify": "^2.4.1",
+    "mongoose": "^5.5.11",
+    "nodemon": "^1.19.1"
+  }
+}
