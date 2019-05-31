@@ -72,7 +72,7 @@ const todoSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Todo', todoSchema);
 ```
-Nous avons ici importer **mongoose** puis créez un schema. Celui-ci nous permets de définir les données associer à notre modèle **Todo**. Notre Todolist aura donc un *label* ainsi qu'une *description*. C'est deux champs sont de type *String*. Enfin, nous exportons notre modèle dans la dernière ligne.
+Nous avons ici importer **mongoose** puis créez un schema. Celui-ci nous permets de définir les données associer à notre modèle **Todo**. Notre Todolist aura donc un *label* ainsi qu'une *description*. Ces deux champs sont de type *String*. Enfin, nous exportons notre modèle dans la dernière ligne.
 
 ## Créons un controller pour notre Todolist
 Nous avons créer plus tôt un model pour notre Todolist. Nous allons maintenant lui associer un **controller** à notre **todoSchema**. Il s'agira de lui associer des fonctions permettant de retourner, de supprimer et de mettre à jour nos données.
@@ -148,7 +148,7 @@ exports.updateTodo = async (req, reply) => {
 }
 ```
 
-### Supprimons là
+### Supprimons la
 ```javascript
 exports.deleteTodo = async (req, reply) => {
   try {
