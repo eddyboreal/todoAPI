@@ -53,7 +53,7 @@ Rappelez-vous, nous avons installé plus tôt le module **mongoose** via npm. Ma
 ```javascript
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/mycargarage')
+mongoose.connect('mongodb://localhost/todoAPI')
   .then(() => console.log('MongoDB connected…'))
   .catch(err => console.log(err))
 ```
