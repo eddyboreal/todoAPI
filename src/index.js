@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 
 // connect to MongoDB
-mongoose.connect('mongodb://localhost/mycargarage')
+mongoose.connect('mongodb://localhost/todoAPI')
   .then(() => console.log('MongoDB connected…'))
   .catch(err => console.log(err))
 
