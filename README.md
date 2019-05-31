@@ -49,7 +49,7 @@ fastify.listen(3000, function(err, address) {
 }
 
 ```
-*Mais qu'avons-nous fais ?*
+*Mais qu'avons-nous fait ?*
 * Nous avons tout d'abord importé **fastify**. C'est ce framework qui va nous permettre de créer notre serveur !
 * Ensuite, nous utilisons la méthode **get()** de **fastify**. En premier paramètre, nous lui passons le path depuis le **localhost** puis en second paramètre, une fonction prenant la **requête/req** et la **réponse/reply** attendue. Alors, nous renvoyons un "Hello World!" comme réponse à l'issue de cette requête sur l'url *http://localhost:3000/* !
 * Enfin, avec la fonction **listen()**, nous indiquons à fastify sur quel port notre serveur sera écouté. En cas d'erreurs, nous serons notifié dans la console. 
