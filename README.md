@@ -95,6 +95,10 @@ Voici ce que nous pouvons faire :
 * Mettre à jour une todo
 * Supprimer une todo
 
+Liens intéressants pour comprendre les opérations CRUD :
+* **CRUD Operations** : https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+* **mongoose queries** : https://mongoosejs.com/docs/queries.html
+
 ### Ecrivons alors une fonction permettant de renvoyer toutes les todos
 ```javascript
 exports.getTodos = async (req, reply) => {
@@ -234,5 +238,7 @@ Nous pouvons tester ses fonctionnalités avec POSTMAN.
 
 * **MongoDB doc** : https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 * **medium tutorial on fastify** : https://www.freecodecamp.org/news/how-to-build-blazing-fast-rest-apis-with-node-js-mongodb-fastify-and-swagger-114e062db0c9/
+* **CRUD Operations** : https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+* **mongoose queries** : https://mongoosejs.com/docs/queries.html
 
 @tutoriel réalisé par Vincent Lim et Eddy ABADA
