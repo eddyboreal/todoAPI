@@ -13,6 +13,11 @@ routes.forEach((route, index) => {
   fastify.route(route);
 });
 
+// Hello World!
+fastify.get('/', function (req, reply) {
+  reply.send('Hello World!')
+})
+
 // running the server
 fastify.listen(3000, function(err, address) {
   if(err) {
