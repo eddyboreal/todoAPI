@@ -139,8 +139,8 @@ exports.updateTodo = async (req, reply) => {
   try {
     const id = req.params.id
     const todo = req.body
-    const { ...updateData } = car
-    const update = await Car.findByIdAndUpdate(id, updateData, { new: true })
+    const { ...updateData } = todo
+    const update = await Todo.findByIdAndUpdate(id, updateData, { new: true })
     return update
   } catch (err) {
     throw boom.boomify(err)
