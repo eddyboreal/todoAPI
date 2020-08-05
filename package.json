@@ -19,7 +19,7 @@
   "homepage": "https://github.com/eddyboreal/todoAPI#readme",
   "dependencies": {
     "boom": "^7.3.0",
-    "fastify": "^2.4.1",
+    "fastify": "^2.15.1",
     "mongoose": "^5.5.11",
     "nodemon": "^1.19.1"
   }
